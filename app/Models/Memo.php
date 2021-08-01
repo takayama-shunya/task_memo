@@ -9,6 +9,12 @@ class Memo extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'tite',
+        'content',
+        'user_id',
+    ];
+
     function user()
     {
         return $this->belongsTo(User::class);
