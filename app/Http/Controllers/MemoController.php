@@ -15,7 +15,7 @@ class MemoController extends Controller
     public function index()
     {
         $memos = Memo::orderBy('created_at', 'asc')->paginate(10);
-        return view('memo/index',$memos);
+        return view('memo/index', compact('memos'));
     }
 
     /**
