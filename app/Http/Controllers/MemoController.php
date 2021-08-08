@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Memo;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Pagination\Paginator;
+
 
 class MemoController extends Controller
 {
@@ -25,7 +28,7 @@ class MemoController extends Controller
      */
     public function create()
     {
-        //
+        return view('memo/create');
     }
 
     /**
@@ -36,7 +39,24 @@ class MemoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $memo = new Memo;
+
+        $memo->title = $request->title;
+        $memo->content = $request->content;
+        $memo->user_id = Auth::id();
+
+        if($memo->save()) {
+            session()->flash('flash_message_succes', 'メモ作成しました');
+            return redirect('/memos');
+       }
+       else {
+            session()->flash('flash_message_failed', '失敗しました');
+            return redirect('/memos');
+       }
+  
+       return redirect()->back();
+
+
     }
 
     /**

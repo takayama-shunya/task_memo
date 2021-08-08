@@ -79,6 +79,19 @@
             @yield('title')
         </div>
 
+        <div>
+            @if (session('flash_message_succes'))
+                <div class="alert alert-success" role="alert"">
+                    {{ session('flash_message_succes') }}
+                </div>
+            @endif
+            @if (session('flash_message_failed'))
+                <div class="alert alert-danger" role="alert"">
+                    {{ session('flash_message_failed') }}
+                </div>
+            @endif
+        <div>
+
         <main class="py-4">
             @yield('content')
         </main>

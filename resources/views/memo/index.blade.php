@@ -7,6 +7,9 @@
 @section('content')
 <div class="container">
   <div>
+    <a href="{{ route('memos.create') }}" class="btn btn-outline-success" >新規作成</a>
+  </div>
+  <div>
     <table class="table-auto border border-collapse">
       <thead>
         <tr>
@@ -28,6 +31,6 @@
       @endforeach
     </table>
   </div>
-  <div class="float-left">{{$memos->links()}}</div>
+  <div>{{$memos->links()}}</div>
 </div>
 @endsection
