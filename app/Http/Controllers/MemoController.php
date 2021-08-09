@@ -67,7 +67,8 @@ class MemoController extends Controller
      */
     public function show($id)
     {
-        //
+        $memo = Memo::find($id);
+        return view('memo/show', compact('memo'));
     }
 
     /**
@@ -78,7 +79,9 @@ class MemoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $memo = Memo::find($id);
+        return view('memo/edit', compact('memo'));
+
     }
 
     /**
@@ -90,7 +93,22 @@ class MemoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $memo = Memo::find($id);
+
+        $memo->title = $request->title;
+        $memo->content = $request->content;
+
+        if($memo->save()) {
+            session()->flash('flash_message_succes', 'メモ編集しました');
+            return redirect('/memos');
+       }
+       else {
+            session()->flash('flash_message_failed', '失敗しました');
+            return redirect('/memos');
+       }
+  
+       return redirect()->back();
+
     }
 
     /**
@@ -101,6 +119,16 @@ class MemoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $memo = Memo::find($id);
+
+        if($memo->delete()) {
+            session()->flash('flash_message_succes', 'メモ削除しました');
+            return redirect('/memos');
+       }
+       else {
+            session()->flash('flash_message_failed', '失敗しました');
+            return redirect('/memos');
+       }
+
     }
 }

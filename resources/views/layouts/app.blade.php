@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/style.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -81,12 +82,12 @@
 
         <div>
             @if (session('flash_message_succes'))
-                <div class="alert alert-success" role="alert"">
+                <div class="alert alert-success" role="alert">
                     {{ session('flash_message_succes') }}
                 </div>
             @endif
             @if (session('flash_message_failed'))
-                <div class="alert alert-danger" role="alert"">
+                <div class="alert alert-danger" role="alert">
                     {{ session('flash_message_failed') }}
                 </div>
             @endif
