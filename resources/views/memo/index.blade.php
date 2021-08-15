@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+
 <div class="container">
   <div>
     <a href="{{ route('memos.create') }}" class="btn btn-primary" >新規作成</a>
