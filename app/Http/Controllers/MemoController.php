@@ -131,4 +131,10 @@ class MemoController extends Controller
        }
 
     }
+
+    //vue表示用
+    public function task_index()
+    {
+        return Memo::all();
+    }
 }

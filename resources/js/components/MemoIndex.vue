@@ -1,7 +1,9 @@
 <template>
 <div class="container">
   <div>
-    TEST
+    <router-link v-bind:to="{name: 'memo.create'}">
+      <button class="btn btn-success">新規作成</button>
+    </router-link>
   </div>
   <div>
     <table class="table table-bordered">

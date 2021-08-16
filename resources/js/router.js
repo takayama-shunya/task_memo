@@ -4,21 +4,21 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 import MemoIndex from "./components/MemoIndex.vue";
-// import About from "./components/About.vue";
+import MemoCreate from "./components/MemoCreate.vue";
 
 const router = new VueRouter({
     mode: "history",
     routes: [
         {
-            path: "/test",
-            name: "test",
+            path: "/tasks",
+            name: "memo.index",
             component: MemoIndex
         },
-        // {
-        //     path: "/about",
-        //     name: "About",
-        //     component: About,
-        // }
+        {
+            path: "/task/create",
+            name: "memo.create",
+            component: MemoCreate,
+        }
     ]
 });
 
