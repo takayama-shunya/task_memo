@@ -21,4 +21,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/tasks', [MemoController::class, 'task_index']);
+Route::get('/task/{id}', [MemoController::class, 'task_show']);
 

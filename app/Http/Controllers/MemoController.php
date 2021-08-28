@@ -137,4 +137,10 @@ class MemoController extends Controller
     {
         return Memo::all();
     }
+
+    public function task_show($id)
+    {
+        $task = Memo::find($id);
+        return $task;
+    }
 }

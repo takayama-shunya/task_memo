@@ -5,6 +5,7 @@ Vue.use(VueRouter);
 
 import MemoIndex from "./components/MemoIndex.vue";
 import MemoCreate from "./components/MemoCreate.vue";
+import MemoShow from "./components/MemoShow.vue";
 
 const router = new VueRouter({
     mode: "history",
@@ -18,6 +19,11 @@ const router = new VueRouter({
             path: "/task/create",
             name: "memo.create",
             component: MemoCreate,
+        },
+        {
+            path: "/task/{id}",
+            name: "memo.sbow",
+            component: MemoShow,
         }
     ]
 });
