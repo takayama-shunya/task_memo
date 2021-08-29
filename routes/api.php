@@ -21,5 +21,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/tasks', [MemoController::class, 'task_index']);
+Route::post('/task/create', [MemoController::class, 'task_store']);
 Route::get('/task/{id}', [MemoController::class, 'task_show']);
+Route::put('/task/{id}', [MemoController::class, 'task_update']);
+Route::delete('/task/{id}', [MemoController::class, 'task_delete']);
+
 

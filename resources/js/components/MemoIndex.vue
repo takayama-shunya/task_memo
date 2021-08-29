@@ -1,27 +1,30 @@
 <template>
-<div class="container">
-  <div>
-    <router-link v-bind:to="{name: 'memo.create'}">
-      <button class="btn btn-success">新規作成</button>
-    </router-link>
-  </div>
-  <div>
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th class="">タイトル</th>
-          <th class="">作成日</th>
-          <th class="">内容</th>
-          <th class=""></th>
-        </tr>
-      </thead>
-    </table>
-  </div>
-  <div>ページネーション</div>
+<div>
+	<h1>memo一覧</h1>
+	<ul>
+		<li 
+      v-for="memo in tasks" 
+      v-text="memo.title" 
+    ></li>
+	</ul>
 </div>
-
 </template>
 
 <script>
-    export default {}
+  export default {
+    data: function () {
+          return {
+              tasks: [],
+          }
+      },
+    created(){
+			axios.get('/api/tasks')
+				.then(response => {
+					this.tasks = response.data.memos;
+				})
+				.catch(error => {
+					console.log(error)
+				});
+		} 
+  }
 </script>

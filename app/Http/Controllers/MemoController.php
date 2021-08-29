@@ -135,7 +135,14 @@ class MemoController extends Controller
     //vue表示用
     public function task_index()
     {
-        return Memo::all();
+        $memos = Memo::orderBy('created_at', 'asc')->get();
+        // $memos = Memo::all();
+        return response()->json(['memos' => $memos]);
+    }
+
+    public function task_store($request)
+    {
+        return Memo::create($request->all());
     }
 
     public function task_show($id)

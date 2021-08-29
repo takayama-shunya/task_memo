@@ -4,10 +4,10 @@
        <div class="">
            <div class="">
               <div class="pb-2">
-                title<br>{{ $task->title }}
+                title<br>test
               </div>
               <div class="pb-2">
-                content<br>{{ $task->content }}
+                content<br>test
               </div>
            </div>
        </div>
