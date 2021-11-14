@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Auth;
 Route::middleware(['auth'])->group(function () {
     Route::resource('memos', MemoController::class);
     //vue表示用
-    Route::get('/tasks', [MemoController::class, 'task_index']);
+    Route::get('/tasks', [MemoController::class, 'task_index'])->name('task.index');
 });
 
 

@@ -26,12 +26,16 @@ const router = new VueRouter({
             name: "memo.show",
             component: MemoShow,
         },
-        // {
-        //     path: "/task/{id}/edit",
-        //     name: "memo.edit",
-        //     component: MemoEdit,
-        // },
-
+        {
+            path: "/task/{id}/edit",
+            name: "memo.edit",
+            component: MemoEdit,
+        },
+        {
+            path: "/task/{id}/destroy",
+            name: "memo.destroy",
+            component: MemoDestroy,
+        },
     ]
 });
 

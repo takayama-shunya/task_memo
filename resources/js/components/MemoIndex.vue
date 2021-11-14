@@ -1,6 +1,11 @@
 <template>
 <div>
 	<h1>memo一覧</h1>
+	<div>
+		<router-link :to="{name: 'memo.create'}">
+        <button class="btn btn-primary">新規作成</button>
+    </router-link>
+	</div>
 	<table class="table table-bordered">
 		<thead>
 			<tr>
@@ -15,6 +20,21 @@
 				<td>{{ memo.title }}</td>
 				<td>{{ memo.created_at | moment }}</td>
 				<td>{{ memo.content }}</td>
+				<td>
+					<router-link :to="{name: 'memo.show'}">
+        			<button class="btn btn-outline-info">詳細</button>
+    			</router-link>
+				</td>
+				<td>
+					<router-link :to="{name: 'memo.edit'}">
+        			<button class="btn btn-outline-success">編集</button>
+    			</router-link>
+				</td>
+				<td>
+					<router-link :to="{name: 'memo.destroy'}">
+        			<button class="btn btn-outline-danger">削除</button>
+    			</router-link>
+				</td>
 			</tr>
 		</tbody>
 	</table>
